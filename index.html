@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HauriVox · Em breve</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f0eaff 0%, #e0d9ff 100%);
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .card {
+            max-width: 550px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 3rem;
+            padding: 2.8rem 2rem;
+            text-align: center;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .logo-exibido {
+            margin-bottom: 1.8rem;
+            min-height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-exibido img {
+            max-width: 420px;
+            max-height: 240px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .site-nome {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            background: linear-gradient(120deg, #2b275e, #6c52b0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e1b3b;
+            margin-bottom: 0.75rem;
+        }
+
+        .sub {
+            color: #5a557c;
+            font-size: 0.95rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .contador {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+        }
+
+        .bloco {
+            background: #f1effc;
+            border-radius: 1.2rem;
+            padding: 0.5rem 0.8rem;
+            min-width: 65px;
+        }
+
+        .numero {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #312e6e;
+            font-family: monospace;
+        }
+
+        .label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #6f6b93;
+        }
+
+        footer {
+            margin-top: 2rem;
+            font-size: 0.7rem;
+            color: #9692bb;
+            border-top: 1px solid #eae6ff;
+            padding-top: 1.2rem;
+        }
+
+        /* CAMPO OCULTO - você edita no HTML mas ele não aparece na tela */
+        .campo-oculto {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <!-- AQUI APARECE O LOGO (IMAGEM) -->
+    <div class="logo-exibido">
+        <img id="logoImg" src="" alt="Logo HauriVox">
+    </div>
+
+    
+    <h1>Em breve!</h1>
+    <p class="sub">Estamos preparando algo especial.<br>Em breve, a HauriVox vai surpreender você.</p>
+
+    <!-- CONTAGEM REGRESSIVA -->
+    <div class="contador">
+        <div class="bloco"><div class="numero" id="dias">00</div><div class="label">dias</div></div>
+        <div class="bloco"><div class="numero" id="horas">00</div><div class="label">horas</div></div>
+        <div class="bloco"><div class="numero" id="minutos">00</div><div class="label">min</div></div>
+        <div class="bloco"><div class="numero" id="segundos">00</div><div class="label">seg</div></div>
+    </div>
+
+    <!-- ================================================================ -->
+    <!-- CAMPO PARA VOCÊ COLOCAR O CAMINHO DO LOGO (EDITÁVEL NO HTML)     -->
+    <!-- ELE NÃO APARECE NA TELA, SÓ NO CÓDIGO FONTE                     -->
+    <!-- BASTA MUDAR O TEXTO DENTRO DA TAG <span> ABAIXO                 -->
+    <!-- ================================================================ -->
+    <div class="campo-oculto">
+        <span id="caminhoTexto">images/haurivox_banner.png</span>
+    </div>
+
+    <footer>
+        contato@haurivox.com.br · página em construção
+    </footer>
+</div>
+
+<script>
+    (function() {
+        // ---------- CONTAGEM REGRESSIVA (30 dias) ----------
+        let dataAlvo = new Date();
+        dataAlvo.setDate(dataAlvo.getDate() + 30);
+        dataAlvo.setHours(20, 0, 0, 0);
+
+        function atualizarContador() {
+            const agora = new Date().getTime();
+            const distancia = dataAlvo.getTime() - agora;
+            if (distancia < 0) {
+                document.getElementById('dias').innerText = '00';
+                document.getElementById('horas').innerText = '00';
+                document.getElementById('minutos').innerText = '00';
+                document.getElementById('segundos').innerText = '00';
+                return;
+            }
+            const dias = Math.floor(distancia / (1000*60*60*24));
+            const horas = Math.floor((distancia % (1000*60*60*24)) / (1000*60*60));
+            const minutos = Math.floor((distancia % (1000*60*60)) / (1000*60));
+            const segundos = Math.floor((distancia % (1000*60)) / 1000);
+            document.getElementById('dias').innerText = dias < 10 ? '0'+dias : dias;
+            document.getElementById('horas').innerText = horas < 10 ? '0'+horas : horas;
+            document.getElementById('minutos').innerText = minutos < 10 ? '0'+minutos : minutos;
+            document.getElementById('segundos').innerText = segundos < 10 ? '0'+segundos : segundos;
+        }
+        atualizarContador();
+        setInterval(atualizarContador, 1000);
+
+        // ---------- MOSTRAR O LOGO A PARTIR DO CAMPO OCULTO ----------
+        const spanCaminho = document.getElementById('caminhoTexto');
+        const imgLogo = document.getElementById('logoImg');
+
+        function atualizarLogo() {
+            let caminho = spanCaminho.innerText.trim();
+            if (caminho && caminho !== '') {
+                imgLogo.src = caminho;
+                imgLogo.style.display = 'block';
+                imgLogo.onerror = function() {
+                    // Se a imagem não carregar, mostra um placeholder visual amigável
+                    imgLogo.style.display = 'none';
+                    // Cria uma mensagem sutil no lugar (opcional, mas não atrapalha)
+                    const container = document.querySelector('.logo-exibido');
+                    if (container && !document.getElementById('placeholder-msg')) {
+                        const msg = document.createElement('div');
+                        msg.id = 'placeholder-msg';
+                        msg.style.fontSize = '0.8rem';
+                        msg.style.color = '#a09bc0';
+                        msg.style.padding = '1rem';
+                        msg.innerText = '🖼️ Logo aparecerá aqui';
+                        container.appendChild(msg);
+                    }
+                };
+            } else {
+                imgLogo.style.display = 'none';
+            }
+        }
+
+        // Atualiza o logo ao carregar a página
+        atualizarLogo();
+    })();
+</script>
+</body>
+</html>
