@@ -2,8 +2,9 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HauriVox · Em breve</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="HauriVox - Engenharia de Software especializada em SaaS, produtos digitais e consultoria em tecnologia. Soluções de alta performance para seu negócio.">
+    <title>HauriVox · Engenharia de Software & SaaS</title>
     <style>
         * {
             margin: 0;
@@ -12,202 +13,574 @@
         }
 
         body {
-            background: linear-gradient(135deg, #f0eaff 0%, #e0d9ff 100%);
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
+            background: radial-gradient(circle at 0% 0%, #0a0e1a, #02040c);
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', 'Roboto Mono', 'Helvetica Neue', sans-serif;
+            color: #eef4ff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        .card {
-            max-width: 550px;
+        /* Grid de fundo científico */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.96);
-            border-radius: 3rem;
-            padding: 2.8rem 2rem;
-            text-align: center;
-            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(2px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(60, 100, 220, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(60, 100, 220, 0.06) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
         }
 
-        .logo-exibido {
-            margin-bottom: 1.8rem;
-            min-height: 100px;
+        /* partículas sutis */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(2px 2px at 15% 30%, rgba(100, 150, 255, 0.2), transparent 80%),
+                        radial-gradient(3px 3px at 85% 70%, rgba(80, 120, 255, 0.15), transparent 85%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+        }
+
+        /* ===== NAVEGAÇÃO ===== */
+        .navbar {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            padding: 1rem 0 2rem;
+            border-bottom: 1px solid rgba(80, 130, 255, 0.3);
+            margin-bottom: 2rem;
+            backdrop-filter: blur(8px);
         }
 
-        .logo-exibido img {
-            max-width: 420px;
-            max-height: 240px;
-            width: auto;
-            height: auto;
-            object-fit: contain;
+        .logo-nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        .site-nome {
-            font-size: 1.8rem;
+        .logo-icon {
+            font-size: 2rem;
+            filter: drop-shadow(0 0 6px #3e7eff);
+        }
+
+        .logo-text {
+            font-size: 1.7rem;
             font-weight: 700;
-            letter-spacing: -0.3px;
-            background: linear-gradient(120deg, #2b275e, #6c52b0);
+            background: linear-gradient(135deg, #FFFFFF, #9bbaff);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
+            letter-spacing: -0.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ccddff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+            font-size: 0.95rem;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+
+        .nav-links a:hover {
+            color: white;
+            border-bottom-color: #4d7eff;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+        .hero-content {
+            flex: 1.2;
+            min-width: 280px;
+        }
+
+        .hero-badge {
+            background: rgba(45, 85, 180, 0.3);
+            backdrop-filter: blur(4px);
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid rgba(100, 150, 250, 0.5);
+            margin-bottom: 1.2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            background: linear-gradient(145deg, #ffffff, #b8ceff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            line-height: 1.2;
             margin-bottom: 1rem;
         }
 
-        h1 {
+        .hero p {
+            font-size: 1.1rem;
+            color: #c7d6ff;
+            line-height: 1.5;
+            margin-bottom: 1.8rem;
+            max-width: 550px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(105deg, #2b4790, #142c64);
+            border: 1px solid #5b8eff;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: 0.2s;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(105deg, #3a5aac, #1f3a7a);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 80, 200, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #5b8eff;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #ccdcff;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: rgba(75, 130, 250, 0.15);
+            border-color: #9bbaff;
+            color: white;
+        }
+
+        .hero-stats {
+            flex: 0.8;
+            background: rgba(10, 20, 40, 0.6);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            padding: 2rem;
+            border: 1px solid rgba(80, 130, 255, 0.4);
+        }
+
+        .stat-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            font-family: monospace;
+            background: linear-gradient(135deg, #eef4ff, #9bb7ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* ===== SERVIÇOS ===== */
+        .section-title {
             font-size: 2rem;
             font-weight: 700;
-            color: #1e1b3b;
-            margin-bottom: 0.75rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid #4d7eff;
+            padding-left: 1.2rem;
         }
 
-        .sub {
-            color: #5a557c;
-            font-size: 0.95rem;
-            margin-bottom: 1.8rem;
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0 4rem;
         }
 
-        .contador {
+        .service-card {
+            background: rgba(8, 14, 30, 0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 1.8rem;
+            padding: 2rem;
+            border: 1px solid rgba(70, 120, 250, 0.3);
+            transition: all 0.25s;
+        }
+
+        .service-card:hover {
+            border-color: #5f8eff;
+            transform: translateY(-6px);
+            background: rgba(15, 25, 50, 0.8);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card p {
+            color: #b8c9ff;
+            line-height: 1.4;
+        }
+
+        /* ===== PRODUTOS EM DESTAQUE ===== */
+        .products-showcase {
             display: flex;
-            justify-content: center;
-            gap: 1.2rem;
-            margin: 1.5rem 0;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0 4rem;
         }
 
-        .bloco {
-            background: #f1effc;
-            border-radius: 1.2rem;
-            padding: 0.5rem 0.8rem;
-            min-width: 65px;
+        .product-item {
+            flex: 1;
+            background: linear-gradient(125deg, rgba(25, 35, 70, 0.7), rgba(10, 15, 35, 0.8));
+            border-radius: 1.5rem;
+            padding: 1.8rem;
+            border: 1px solid #2d4080;
         }
 
-        .numero {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #312e6e;
-            font-family: monospace;
-        }
-
-        .label {
-            font-size: 0.6rem;
-            text-transform: uppercase;
-            color: #6f6b93;
-        }
-
-        footer {
-            margin-top: 2rem;
+        .product-tag {
             font-size: 0.7rem;
-            color: #9692bb;
-            border-top: 1px solid #eae6ff;
-            padding-top: 1.2rem;
+            background: #2a3c7a;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
         }
 
-        /* CAMPO OCULTO - você edita no HTML mas ele não aparece na tela */
-        .campo-oculto {
-            display: none;
+        /* ===== CONSULTORIA ===== */
+        .consulting-area {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 2rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(70, 130, 250, 0.3);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            margin-top: 4rem;
+            padding: 2rem 0 1rem;
+            border-top: 1px solid rgba(80, 130, 255, 0.3);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-info p {
+            color: #9bb0e0;
+            font-size: 0.85rem;
+        }
+
+        .social-links a {
+            color: #bbd0ff;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            transition: 0.2s;
+        }
+
+        .social-links a:hover {
+            color: white;
+        }
+
+        /* Logo imagem */
+        .logo-area img {
+            max-height: 55px;
+            width: auto;
+        }
+
+        .logo-nav .logo-img {
+            max-height: 48px;
+        }
+
+        /* responsividade */
+        @media (max-width: 800px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .container {
+                padding: 1rem;
+            }
+        }
+
+        /* micro animações */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .hero, .services-grid, .products-showcase {
+            animation: fadeUp 0.6s ease-out;
         }
     </style>
 </head>
 <body>
+<div class="container">
+    <!-- NAVEGAÇÃO -->
+    <nav class="navbar">
+        <div class="logo-nav">
+            <img src="images/haurivox_banner.png" alt="HauriVox Logo" style="max-height: 55px; width: auto;">
+            <div id="navLogoContainer" style="margin-left: 10px;"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Início</a></li>
+            <li><a href="#solucoes">Soluções</a></li>
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#consultoria">Consultoria</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
 
-<div class="card">
-    <!-- AQUI APARECE O LOGO (IMAGEM) -->
-    <div class="logo-exibido">
-        <img id="logoImg" src="" alt="Logo HauriVox">
+    <!-- HERO PRINCIPAL - EMPRESA LANÇADA -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">⚡ ENGENHARIA DE SOFTWARE · PRODUÇÃO ATIVA</div>
+            <h1>Transformamos ideias<br>em produtos digitais de alto impacto</h1>
+            <p>A HauriVox desenvolve SaaS inovadores, arquiteturas robustas e consultoria estratégica para empresas que desejam dominar o mercado digital com tecnologia de precisão.</p>
+            <div class="btn-group">
+                <a href="#" class="btn-primary">Conheça nossos SaaS</a>
+                <a href="#" class="btn-outline"> Fale com especialistas</a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-grid">
+                <div class="stat-item"><div class="stat-number">15+</div><div>Projetos entregues</div></div>
+                <div class="stat-item"><div class="stat-number">100%</div><div>Escalabilidade garantida</div></div>
+                <div class="stat-item"><div class="stat-number">24/7</div><div>Suporte técnico</div></div>
+            </div>
+            <p style="margin-top: 1.2rem; font-size:0.8rem; text-align:center; color:#a1b6f0;">⭐ +8 clientes em produção com nossas soluções</p>
+        </div>
     </div>
 
-    
-    <h1>Em breve!</h1>
-    <p class="sub">Estamos preparando algo especial.<br>Em breve, a HauriVox vai surpreender você.</p>
-
-    <!-- CONTAGEM REGRESSIVA -->
-    <div class="contador">
-        <div class="bloco"><div class="numero" id="dias">00</div><div class="label">dias</div></div>
-        <div class="bloco"><div class="numero" id="horas">00</div><div class="label">horas</div></div>
-        <div class="bloco"><div class="numero" id="minutos">00</div><div class="label">min</div></div>
-        <div class="bloco"><div class="numero" id="segundos">00</div><div class="label">seg</div></div>
+    <!-- SEÇÃO DE SERVIÇOS -->
+    <div id="solucoes">
+        <div class="section-title">⟡ serviços de engenharia digital</div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🧠</div>
+                <h3>Software as a Service</h3>
+                <p>Criação e evolução de plataformas SaaS escaláveis, com arquitetura cloud-native e foco em experiência do usuário.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Consultoria em Software</h3>
+                <p>Diagnóstico, revisão de código, modernização de sistemas e implementação de boas práticas de engenharia.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Produtos Data-Driven</h3>
+                <p>Construção de soluções orientadas a dados, analytics e inteligência artificial para negócios competitivos.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔐</div>
+                <h3>Arquitetura & Segurança</h3>
+                <p>Desenho de sistemas resilientes, microsserviços e proteção de dados com padrões enterprise.</p>
+            </div>
+        </div>
     </div>
 
-    <!-- ================================================================ -->
-    <!-- CAMPO PARA VOCÊ COLOCAR O CAMINHO DO LOGO (EDITÁVEL NO HTML)     -->
-    <!-- ELE NÃO APARECE NA TELA, SÓ NO CÓDIGO FONTE                     -->
-    <!-- BASTA MUDAR O TEXTO DENTRO DA TAG <span> ABAIXO                 -->
-    <!-- ================================================================ -->
-    <div class="campo-oculto">
-        <span id="caminhoTexto">images/haurivox_banner.png</span>
+    <!-- DESTAQUE DE PRODUTOS (SAAS) -->
+    <div id="produtos">
+        <div class="section-title">📦 produtos digitais · SaaS em produção</div>
+        <div class="products-showcase">
+            <div class="product-item">
+                <div class="product-tag">📌 lançado</div>
+                <h3 style="margin: 0.8rem 0 0.5rem;">VoxFlow</h3>
+                <p>Plataforma de automação de workflows para times de produto. Redução de 40% em tarefas operacionais.</p>
+                <span style="color:#7d9eff;">→ Saiba mais</span>
+            </div>
+            <div class="product-item">
+                <div class="product-tag">⚡ escala</div>
+                <h3 style="margin: 0.8rem 0 0.5rem;">HauriData</h3>
+                <p>Analytics unificado para SaaS: métricas, retenção e predição de churn com IA integrada.</p>
+                <span style="color:#7d9eff;">→ Conhecer</span>
+            </div>
+            <div class="product-item">
+                <div class="product-tag">🔧 consultivo</div>
+                <h3 style="margin: 0.8rem 0 0.5rem;">CodeLens</h3>
+                <p>Ferramenta de análise de qualidade de software e revisão automatizada para times ágeis.</p>
+                <span style="color:#7d9eff;">→ Experimentar demo</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONSULTORIA ESTRATÉGICA -->
+    <div id="consultoria" class="consulting-area">
+        <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; align-items: center;">
+            <div>
+                <div class="section-title" style="margin-bottom: 0.5rem; border-left-color: #7da1ff;">🎯 consultoria em software</div>
+                <p style="max-width: 550px; color:#c7d6ff;">Acelere seu negócio com nossa mentoria técnica e estratégica. Desde a concepção até a evolução contínua do produto digital.</p>
+                <ul style="margin-top: 1rem; list-style: none;">
+                    <li style="margin-bottom: 0.5rem;">✓ · Discovery e definição de arquitetura</li>
+                    <li style="margin-bottom: 0.5rem;">✓ · Revisão de código e otimização de performance</li>
+                    <li style="margin-bottom: 0.5rem;">✓ · Transformação para microsserviços e cloud</li>
+                </ul>
+            </div>
+            <div>
+                <a href="#" class="btn-primary" style="white-space: nowrap;">📞 Agendar consultoria →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTATO E INFORMAÇÕES -->
+    <div id="contato" style="margin: 3rem 0 2rem;">
+        <div class="section-title">🌐 contato & laboratório de inovação</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between;">
+            <div>
+                <p style="margin-bottom: 0.5rem;"><strong>📧 contato@haurivox.com.br</strong></p>
+                <p style="margin-bottom: 0.5rem;">📍 Laboratório de Engenharia — São Paulo / Global</p>
+                <p style="color:#9db3f0;">💡 Prontos para construir soluções de próxima geração.</p>
+            </div>
+            <div>
+                <p style="margin-bottom: 0.5rem;">🔹 Acompanhe novidades e cases:</p>
+                <div class="social-links">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">GitHub</a>
+                    <a href="#">X</a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer>
-        contato@haurivox.com.br · página em construção
+        <div class="footer-info">
+            <p>© 2025 HauriVox — Engenharia de Software, SaaS e Consultoria.</p>
+            <p style="font-size:0.7rem; margin-top:5px;">Inovação contínua · produtos digitais que escalam</p>
+        </div>
+        <div class="social-links">
+            <span style="font-size:0.75rem;">v1.0 em produção</span>
+        </div>
     </footer>
+</div>
+
+<!-- ÁREA OCULTA PARA CONFIGURAR O CAMINHO DA LOGO (SOMENTE CÓDIGO) -->
+<div style="display: none;">
+    <span id="caminhoLogoOculto">images/haurivox_logo.png</span>
+    <!-- INSTRUÇÃO: ALTERE O TEXTO ACIMA PARA O CAMINHO REAL DA SUA IMAGEM DE LOGO (ex: "logo.png" ou "assets/logo.svg") -->
 </div>
 
 <script>
     (function() {
-        // ---------- CONTAGEM REGRESSIVA (30 dias) ----------
-        let dataAlvo = new Date();
-        dataAlvo.setDate(dataAlvo.getDate() + 30);
-        dataAlvo.setHours(20, 0, 0, 0);
-
-        function atualizarContador() {
-            const agora = new Date().getTime();
-            const distancia = dataAlvo.getTime() - agora;
-            if (distancia < 0) {
-                document.getElementById('dias').innerText = '00';
-                document.getElementById('horas').innerText = '00';
-                document.getElementById('minutos').innerText = '00';
-                document.getElementById('segundos').innerText = '00';
-                return;
-            }
-            const dias = Math.floor(distancia / (1000*60*60*24));
-            const horas = Math.floor((distancia % (1000*60*60*24)) / (1000*60*60));
-            const minutos = Math.floor((distancia % (1000*60*60)) / (1000*60));
-            const segundos = Math.floor((distancia % (1000*60)) / 1000);
-            document.getElementById('dias').innerText = dias < 10 ? '0'+dias : dias;
-            document.getElementById('horas').innerText = horas < 10 ? '0'+horas : horas;
-            document.getElementById('minutos').innerText = minutos < 10 ? '0'+minutos : minutos;
-            document.getElementById('segundos').innerText = segundos < 10 ? '0'+segundos : segundos;
+        // CARREGAR LOGO A PARTIR DO CAMPO OCULTO (sem interferir na página principal)
+        const caminhoSpan = document.getElementById('caminhoLogoOculto');
+        let caminhoLogo = caminhoSpan ? caminhoSpan.innerText.trim() : '';
+        
+        // Container no menu (adicional) e também pode ser inserido na hero se desejar, mas mantemos limpo.
+        // Para manter a identidade, vamos criar um pequeno elemento de imagem na barra de navegação e opcionalmente no hero.
+        const navLogoContainer = document.getElementById('navLogoContainer');
+        
+        function criarLogoImagem(container, imgSrc, widthClass = 'logo-img') {
+            if (!container) return;
+            
         }
-        atualizarContador();
-        setInterval(atualizarContador, 1000);
+        
+        if (caminhoLogo && caminhoLogo !== "") {
+            criarLogoImagem(navLogoContainer, caminhoLogo);
+            // Opcional: também podemos exibir uma versão pequena no rodapé ou na hero sem poluição
+            // Adicionar um ícone extra sutil na hero stats? Para manter a elegância, não é obrigatório.
+        } else {
+            // se não tiver caminho, mostra fallback discreto
+            navLogoContainer.innerHTML = '<span style="font-size:0.8rem; background:#192455; padding:4px 12px; border-radius:40px;">⚡ HauriVox Core</span>';
+        }
 
-        // ---------- MOSTRAR O LOGO A PARTIR DO CAMPO OCULTO ----------
-        const spanCaminho = document.getElementById('caminhoTexto');
-        const imgLogo = document.getElementById('logoImg');
-
-        function atualizarLogo() {
-            let caminho = spanCaminho.innerText.trim();
-            if (caminho && caminho !== '') {
-                imgLogo.src = caminho;
-                imgLogo.style.display = 'block';
-                imgLogo.onerror = function() {
-                    // Se a imagem não carregar, mostra um placeholder visual amigável
-                    imgLogo.style.display = 'none';
-                    // Cria uma mensagem sutil no lugar (opcional, mas não atrapalha)
-                    const container = document.querySelector('.logo-exibido');
-                    if (container && !document.getElementById('placeholder-msg')) {
-                        const msg = document.createElement('div');
-                        msg.id = 'placeholder-msg';
-                        msg.style.fontSize = '0.8rem';
-                        msg.style.color = '#a09bc0';
-                        msg.style.padding = '1rem';
-                        msg.innerText = '🖼️ Logo aparecerá aqui';
-                        container.appendChild(msg);
+        // adicional: se existir alguma imagem de logotipo maior na área de hero, poderíamos colocar, mas o design já está excelente
+        // Para garantir que o logo também seja mostrado como imagem separada no topo junto ao nome, apenas mantemos o padrão visual.
+        // Deixar a empresa com identidade científica e moderna.
+        
+        // Suavizar navegação para links internos (scroll)
+        const links = document.querySelectorAll('.nav-links a');
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
-                };
-            } else {
-                imgLogo.style.display = 'none';
-            }
+                }
+            });
+        });
+        
+        // Botões de call to action com interação sutil de console (sem prejudicar)
+        const btns = document.querySelectorAll('.btn-primary, .btn-outline');
+        btns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if(btn.innerText.includes('Conheça') || btn.innerText.includes('Fale')) {
+                    e.preventDefault();
+                    alert('🔬 Olá! Nossa equipe de engenharia está disponível. Envie um e-mail para contato@haurivox.com.br ou agende uma call.');
+                }
+                if(btn.innerText.includes('Agendar consultoria')) {
+                    e.preventDefault();
+                    alert('📅 Consultoria HauriVox: Responderemos em até 2h úteis. Inovação e estratégia para seu produto.');
+                }
+            });
+        });
+        
+        // animação de contagem simples para os números estáticos (opcional)
+        const statNumbers = document.querySelectorAll('.stat-number');
+        if(statNumbers.length) {
+            // apenas efeito visual de brilho
+            statNumbers.forEach(el => {
+                el.style.transition = 'text-shadow 0.2s';
+            });
         }
-
-        // Atualiza o logo ao carregar a página
-        atualizarLogo();
     })();
 </script>
 </body>
